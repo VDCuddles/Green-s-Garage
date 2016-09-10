@@ -94,11 +94,19 @@ namespace Greens_Garage
 			cboAddServiceTypeDescription.ValueMember = "ServiceType.Description";
 
 
-			//lblUpdateServiceTypeID.DataBindings.Add("Text", DM.dsGreen, "ServiceType.ServiceTypeID");
-			//txtUpdateDescription.DataBindings.Add("Text", DM.dsGreen, "ServiceType.Description");
-			//txtUpdateHourlyRate.DataBindings.Add("Text", DM.dsGreen, "ServiceType.HourlyRate");
-			//txtUpdateDescription.Enabled = false;
-			//txtUpdateHourlyRate.Enabled = false;
+			cboUpdateVehicleID.DataSource = DM.dsGreen;
+			cboUpdateVehicleID.DisplayMember = "Vehicle.VehicleID";
+			cboUpdateVehicleID.ValueMember = "Vehicle.VehicleID";
+			cboUpdateServiceTypeID.DataSource = DM.dsGreen;
+			cboUpdateServiceTypeID.DisplayMember = "ServiceType.ServiceTypeID";
+			cboUpdateServiceTypeID.ValueMember = "ServiceType.ServiceTypeID";
+			cboUpdateVehiclePlateNumber.DataSource = DM.dsGreen;
+			cboUpdateVehiclePlateNumber.DisplayMember = "Vehicle.PlateNumber";
+			cboUpdateVehiclePlateNumber.ValueMember = "Vehicle.PlateNumber";
+			cboUpdateServiceTypeDescription.DataSource = DM.dsGreen;
+			cboUpdateServiceTypeDescription.DisplayMember = "ServiceType.Description";
+			cboUpdateServiceTypeDescription.ValueMember = "ServiceType.Description";
+			txtUpdateHours.DataBindings.Add("Text", DM.dsGreen, "Service.Hours");
 
 			dgvService.DataSource = DM.dsGreen;
 			dgvService.DataMember = "Service";
@@ -124,7 +132,10 @@ namespace Greens_Garage
 
 			pnlAddService.Left = 428;
 			pnlAddService.Top = 32;
-				
+
+			pnlUpdateService.Left = 428;
+			pnlUpdateService.Top = 32;
+
 			//initialise plate number
 
 			cmVehicle.Position = (0);
@@ -328,6 +339,66 @@ namespace Greens_Garage
 			{
 				markPaidRow["Status"] = "Paid";
 				MessageBox.Show("Service marked as Paid.");
+			}
+		}
+
+		private void btnUpdateService_Click(object sender, EventArgs e)
+		{
+			DataRow updateVehicleRow = DM.dtVehicle.Rows[currencyManager.Position];
+
+			dgvService.Visible = false;
+			btnDeleteService.Enabled = false;
+			btnNext.Enabled = false;
+			btnPrevious.Enabled = false;
+			btnAddService.Enabled = false;
+			btnMarkServiceAsPaid.Enabled = false;
+			cboUpdateVehicleID.Enabled = true;
+			cboUpdateVehiclePlateNumber.Enabled = true;
+			cboUpdateServiceTypeID.Enabled = true;
+			cboUpdateServiceTypeDescription.Enabled = true;
+			txtUpdateHours.Enabled = true;
+			dtpUpdateServiceDate.Enabled = true;
+			pnlUpdateService.Visible = true;
+			pnlUpdateService.Show();
+		}
+
+		private void btnUpdateCancel_Click(object sender, EventArgs e)
+		{
+			pnlUpdateService.Hide();
+			dgvService.Enabled = true;
+			dgvService.Visible = true;
+			btnDeleteService.Enabled = true;
+			btnNext.Enabled = true;
+			btnPrevious.Enabled = true;
+			btnUpdateService.Enabled = true;
+			btnMarkServiceAsPaid.Enabled = true;
+			btnAddService.Enabled = true;
+			cboUpdateVehicleID.Enabled = false;
+			cboUpdateVehiclePlateNumber.Enabled = false;
+			cboUpdateServiceTypeID.Enabled = false;
+			cboUpdateServiceTypeDescription.Enabled = false;
+			txtUpdateHours.Enabled = false;
+			dtpUpdateServiceDate.Enabled = false;
+		}
+
+		private void btnSaveChanges_Click(object sender, EventArgs e)
+		{
+			DataRow updateServiceRow = DM.dtService.Rows[currencyManager.Position];
+
+			if (txtUpdateHours.Text == "")
+
+			{
+				MessageBox.Show("Please specify hours spent.", "Error");
+			}
+			else
+			{
+				updateServiceRow["VehicleID"] = cboUpdateVehicleID.Text;
+				updateServiceRow["ServiceTypeID"] = cboUpdateServiceTypeID.Text;
+				updateServiceRow["Hours"] = txtUpdateHours.Text;
+				updateServiceRow["ServiceDate"] = dtpUpdateServiceDate.Text;
+				currencyManager.EndCurrentEdit();
+				DM.UpdateService();
+				MessageBox.Show("Service updated successfully", "Success");
 			}
 		}
 	}

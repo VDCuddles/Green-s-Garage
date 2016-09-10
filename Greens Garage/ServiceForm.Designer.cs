@@ -63,9 +63,23 @@
 			this.txtAddHours = new System.Windows.Forms.TextBox();
 			this.cboAddServiceTypeDescription = new System.Windows.Forms.ComboBox();
 			this.cboAddVehiclePlateNumber = new System.Windows.Forms.ComboBox();
+			this.pnlUpdateService = new System.Windows.Forms.Panel();
+			this.lblUpdateVehicle = new System.Windows.Forms.Label();
+			this.lblUpdateServiceType = new System.Windows.Forms.Label();
+			this.lblUpdateHours = new System.Windows.Forms.Label();
+			this.lblUpdateServiceDate = new System.Windows.Forms.Label();
+			this.cboUpdateVehicleID = new System.Windows.Forms.ComboBox();
+			this.cboUpdateVehiclePlateNumber = new System.Windows.Forms.ComboBox();
+			this.cboUpdateServiceTypeID = new System.Windows.Forms.ComboBox();
+			this.cboUpdateServiceTypeDescription = new System.Windows.Forms.ComboBox();
+			this.txtUpdateHours = new System.Windows.Forms.TextBox();
+			this.dtpUpdateServiceDate = new System.Windows.Forms.DateTimePicker();
+			this.btnSaveChanges = new System.Windows.Forms.Button();
+			this.btnUpdateCancel = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dgvService)).BeginInit();
 			this.pnlGetData.SuspendLayout();
 			this.pnlAddService.SuspendLayout();
+			this.pnlUpdateService.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// dgvService
@@ -115,6 +129,7 @@
 			this.btnUpdateService.TabIndex = 4;
 			this.btnUpdateService.Text = "Update Service";
 			this.btnUpdateService.UseVisualStyleBackColor = true;
+			this.btnUpdateService.Click += new System.EventHandler(this.btnUpdateService_Click);
 			// 
 			// btnDeleteService
 			// 
@@ -217,7 +232,7 @@
 			this.pnlGetData.Controls.Add(this.txtHours);
 			this.pnlGetData.Controls.Add(this.txtServiceTypeID);
 			this.pnlGetData.Controls.Add(this.txtVehicleID);
-			this.pnlGetData.Location = new System.Drawing.Point(30, 32);
+			this.pnlGetData.Location = new System.Drawing.Point(839, 216);
 			this.pnlGetData.Name = "pnlGetData";
 			this.pnlGetData.Size = new System.Drawing.Size(311, 185);
 			this.pnlGetData.TabIndex = 16;
@@ -385,11 +400,134 @@
 			this.cboAddVehiclePlateNumber.TabIndex = 0;
 			this.cboAddVehiclePlateNumber.SelectedIndexChanged += new System.EventHandler(this.cboAddVehiclePlateNumber_SelectedIndexChanged);
 			// 
+			// pnlUpdateService
+			// 
+			this.pnlUpdateService.Controls.Add(this.btnUpdateCancel);
+			this.pnlUpdateService.Controls.Add(this.btnSaveChanges);
+			this.pnlUpdateService.Controls.Add(this.dtpUpdateServiceDate);
+			this.pnlUpdateService.Controls.Add(this.txtUpdateHours);
+			this.pnlUpdateService.Controls.Add(this.cboUpdateServiceTypeDescription);
+			this.pnlUpdateService.Controls.Add(this.cboUpdateServiceTypeID);
+			this.pnlUpdateService.Controls.Add(this.cboUpdateVehiclePlateNumber);
+			this.pnlUpdateService.Controls.Add(this.cboUpdateVehicleID);
+			this.pnlUpdateService.Controls.Add(this.lblUpdateServiceDate);
+			this.pnlUpdateService.Controls.Add(this.lblUpdateHours);
+			this.pnlUpdateService.Controls.Add(this.lblUpdateServiceType);
+			this.pnlUpdateService.Controls.Add(this.lblUpdateVehicle);
+			this.pnlUpdateService.Location = new System.Drawing.Point(17, 32);
+			this.pnlUpdateService.Name = "pnlUpdateService";
+			this.pnlUpdateService.Size = new System.Drawing.Size(405, 288);
+			this.pnlUpdateService.TabIndex = 13;
+			this.pnlUpdateService.Visible = false;
+			// 
+			// lblUpdateVehicle
+			// 
+			this.lblUpdateVehicle.AutoSize = true;
+			this.lblUpdateVehicle.Location = new System.Drawing.Point(51, 46);
+			this.lblUpdateVehicle.Name = "lblUpdateVehicle";
+			this.lblUpdateVehicle.Size = new System.Drawing.Size(45, 13);
+			this.lblUpdateVehicle.TabIndex = 0;
+			this.lblUpdateVehicle.Text = "Vehicle:";
+			// 
+			// lblUpdateServiceType
+			// 
+			this.lblUpdateServiceType.AutoSize = true;
+			this.lblUpdateServiceType.Location = new System.Drawing.Point(51, 93);
+			this.lblUpdateServiceType.Name = "lblUpdateServiceType";
+			this.lblUpdateServiceType.Size = new System.Drawing.Size(73, 13);
+			this.lblUpdateServiceType.TabIndex = 1;
+			this.lblUpdateServiceType.Text = "Service Type:";
+			// 
+			// lblUpdateHours
+			// 
+			this.lblUpdateHours.AutoSize = true;
+			this.lblUpdateHours.Location = new System.Drawing.Point(51, 139);
+			this.lblUpdateHours.Name = "lblUpdateHours";
+			this.lblUpdateHours.Size = new System.Drawing.Size(38, 13);
+			this.lblUpdateHours.TabIndex = 2;
+			this.lblUpdateHours.Text = "Hours:";
+			// 
+			// lblUpdateServiceDate
+			// 
+			this.lblUpdateServiceDate.AutoSize = true;
+			this.lblUpdateServiceDate.Location = new System.Drawing.Point(51, 185);
+			this.lblUpdateServiceDate.Name = "lblUpdateServiceDate";
+			this.lblUpdateServiceDate.Size = new System.Drawing.Size(72, 13);
+			this.lblUpdateServiceDate.TabIndex = 3;
+			this.lblUpdateServiceDate.Text = "Service Date:";
+			// 
+			// cboUpdateVehicleID
+			// 
+			this.cboUpdateVehicleID.FormattingEnabled = true;
+			this.cboUpdateVehicleID.Location = new System.Drawing.Point(156, 43);
+			this.cboUpdateVehicleID.Name = "cboUpdateVehicleID";
+			this.cboUpdateVehicleID.Size = new System.Drawing.Size(72, 21);
+			this.cboUpdateVehicleID.TabIndex = 4;
+			// 
+			// cboUpdateVehiclePlateNumber
+			// 
+			this.cboUpdateVehiclePlateNumber.FormattingEnabled = true;
+			this.cboUpdateVehiclePlateNumber.Location = new System.Drawing.Point(250, 43);
+			this.cboUpdateVehiclePlateNumber.Name = "cboUpdateVehiclePlateNumber";
+			this.cboUpdateVehiclePlateNumber.Size = new System.Drawing.Size(121, 21);
+			this.cboUpdateVehiclePlateNumber.TabIndex = 5;
+			// 
+			// cboUpdateServiceTypeID
+			// 
+			this.cboUpdateServiceTypeID.FormattingEnabled = true;
+			this.cboUpdateServiceTypeID.Location = new System.Drawing.Point(156, 89);
+			this.cboUpdateServiceTypeID.Name = "cboUpdateServiceTypeID";
+			this.cboUpdateServiceTypeID.Size = new System.Drawing.Size(72, 21);
+			this.cboUpdateServiceTypeID.TabIndex = 6;
+			// 
+			// cboUpdateServiceTypeDescription
+			// 
+			this.cboUpdateServiceTypeDescription.FormattingEnabled = true;
+			this.cboUpdateServiceTypeDescription.Location = new System.Drawing.Point(250, 89);
+			this.cboUpdateServiceTypeDescription.Name = "cboUpdateServiceTypeDescription";
+			this.cboUpdateServiceTypeDescription.Size = new System.Drawing.Size(121, 21);
+			this.cboUpdateServiceTypeDescription.TabIndex = 7;
+			// 
+			// txtUpdateHours
+			// 
+			this.txtUpdateHours.Location = new System.Drawing.Point(158, 135);
+			this.txtUpdateHours.Name = "txtUpdateHours";
+			this.txtUpdateHours.Size = new System.Drawing.Size(100, 20);
+			this.txtUpdateHours.TabIndex = 8;
+			// 
+			// dtpUpdateServiceDate
+			// 
+			this.dtpUpdateServiceDate.Location = new System.Drawing.Point(158, 179);
+			this.dtpUpdateServiceDate.Name = "dtpUpdateServiceDate";
+			this.dtpUpdateServiceDate.Size = new System.Drawing.Size(200, 20);
+			this.dtpUpdateServiceDate.TabIndex = 9;
+			// 
+			// btnSaveChanges
+			// 
+			this.btnSaveChanges.Location = new System.Drawing.Point(25, 232);
+			this.btnSaveChanges.Name = "btnSaveChanges";
+			this.btnSaveChanges.Size = new System.Drawing.Size(120, 40);
+			this.btnSaveChanges.TabIndex = 10;
+			this.btnSaveChanges.Text = "Save Changes";
+			this.btnSaveChanges.UseVisualStyleBackColor = true;
+			this.btnSaveChanges.Click += new System.EventHandler(this.btnSaveChanges_Click);
+			// 
+			// btnUpdateCancel
+			// 
+			this.btnUpdateCancel.Location = new System.Drawing.Point(260, 232);
+			this.btnUpdateCancel.Name = "btnUpdateCancel";
+			this.btnUpdateCancel.Size = new System.Drawing.Size(120, 40);
+			this.btnUpdateCancel.TabIndex = 11;
+			this.btnUpdateCancel.Text = "Cancel";
+			this.btnUpdateCancel.UseVisualStyleBackColor = true;
+			this.btnUpdateCancel.Click += new System.EventHandler(this.btnUpdateCancel_Click);
+			// 
 			// ServiceForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(845, 493);
+			this.Controls.Add(this.pnlUpdateService);
 			this.Controls.Add(this.pnlAddService);
 			this.Controls.Add(this.lblPlateNumber);
 			this.Controls.Add(this.lblOwnerName);
@@ -416,6 +554,8 @@
 			this.pnlGetData.PerformLayout();
 			this.pnlAddService.ResumeLayout(false);
 			this.pnlAddService.PerformLayout();
+			this.pnlUpdateService.ResumeLayout(false);
+			this.pnlUpdateService.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -458,5 +598,18 @@
 		private System.Windows.Forms.Label lblAddServiceType;
 		private System.Windows.Forms.Label lblAddVehicle;
 		private System.Windows.Forms.DateTimePicker dtpServiceDate;
+		private System.Windows.Forms.Panel pnlUpdateService;
+		private System.Windows.Forms.Button btnUpdateCancel;
+		private System.Windows.Forms.Button btnSaveChanges;
+		private System.Windows.Forms.DateTimePicker dtpUpdateServiceDate;
+		private System.Windows.Forms.TextBox txtUpdateHours;
+		private System.Windows.Forms.ComboBox cboUpdateServiceTypeDescription;
+		private System.Windows.Forms.ComboBox cboUpdateServiceTypeID;
+		private System.Windows.Forms.ComboBox cboUpdateVehiclePlateNumber;
+		private System.Windows.Forms.ComboBox cboUpdateVehicleID;
+		private System.Windows.Forms.Label lblUpdateServiceDate;
+		private System.Windows.Forms.Label lblUpdateHours;
+		private System.Windows.Forms.Label lblUpdateServiceType;
+		private System.Windows.Forms.Label lblUpdateVehicle;
 	}
 }
