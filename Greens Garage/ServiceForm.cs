@@ -296,5 +296,39 @@ namespace Greens_Garage
 				}
 			}
 		}
+
+		private void btnDeleteService_Click(object sender, EventArgs e)
+		{
+			DataRow deleteServiceRow = DM.dtService.Rows[currencyManager.Position];
+
+			if (deleteServiceRow["Status"].ToString() != "Paid")
+			{
+				MessageBox.Show("You may only delete paid services.", "Error");
+			}
+			else
+			{
+				if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
+				MessageBoxButtons.OKCancel) == DialogResult.OK)
+				{
+					deleteServiceRow.Delete();
+					DM.UpdateVehicle();
+				}
+			}
+		}
+
+		private void btnMarkServiceAsPaid_Click(object sender, EventArgs e)
+		{
+			DataRow markPaidRow = DM.dtService.Rows[currencyManager.Position];
+
+			if (markPaidRow["Status"].ToString() != "Pending")
+			{
+				MessageBox.Show("You may only mark pending services as paid.", "Error");
+			}
+			else
+			{
+				markPaidRow["Status"] = "Paid";
+				MessageBox.Show("Service marked as Paid.");
+			}
+		}
 	}
 }

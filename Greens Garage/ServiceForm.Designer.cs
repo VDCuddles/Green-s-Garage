@@ -124,6 +124,7 @@
 			this.btnDeleteService.TabIndex = 5;
 			this.btnDeleteService.Text = "Delete Service";
 			this.btnDeleteService.UseVisualStyleBackColor = true;
+			this.btnDeleteService.Click += new System.EventHandler(this.btnDeleteService_Click);
 			// 
 			// btnMarkServiceAsPaid
 			// 
@@ -133,6 +134,7 @@
 			this.btnMarkServiceAsPaid.TabIndex = 6;
 			this.btnMarkServiceAsPaid.Text = "Mark Service as Paid";
 			this.btnMarkServiceAsPaid.UseVisualStyleBackColor = true;
+			this.btnMarkServiceAsPaid.Click += new System.EventHandler(this.btnMarkServiceAsPaid_Click);
 			// 
 			// btnReturn
 			// 
