@@ -81,11 +81,11 @@ namespace Greens_Garage
 			txtAddHours.Enabled = false;
 			dtpServiceDate.Enabled = false;
 			cboAddVehicleID.DataSource = DM.dsGreen;
-			cboAddVehicleID.DisplayMember = "Service.VehicleID";
-			cboAddVehicleID.ValueMember = "Service.VehicleID";
+			cboAddVehicleID.DisplayMember = "Vehicle.VehicleID";
+			cboAddVehicleID.ValueMember = "Vehicle.VehicleID";
 			cboAddServiceTypeID.DataSource = DM.dsGreen;
-			cboAddServiceTypeID.DisplayMember = "Service.ServiceTypeID";
-			cboAddServiceTypeID.ValueMember = "Service.ServiceTypeID";
+			cboAddServiceTypeID.DisplayMember = "ServiceType.ServiceTypeID";
+			cboAddServiceTypeID.ValueMember = "ServiceType.ServiceTypeID";
 			cboAddVehiclePlateNumber.DataSource = DM.dsGreen;
 			cboAddVehiclePlateNumber.DisplayMember = "Vehicle.PlateNumber";
 			cboAddVehiclePlateNumber.ValueMember = "Vehicle.PlateNumber";
@@ -256,14 +256,7 @@ namespace Greens_Garage
 
 		private void cboAddServiceTypeDescription_Click(object sender, EventArgs e)
 		{
-			//string originalText = cboAddServiceTypeDescription.Text.ToString();
 
-			//int aServiceTypeID = (cboAddServiceTypeDescription.SelectedIndex);
-			//cmServiceType.Position = DM.serviceTypeView.Find(aServiceTypeID);
-			//cmServiceType.Position += 1;
-			//DataRow drServiceType = DM.dtServiceType.Rows[cmServiceType.Position];
-
-			//cboAddServiceTypeID.Text = drServiceType["ServiceTypeID"].ToString();
 		}
 
 		private void ServiceForm_TextChanged(object sender, EventArgs e)
@@ -275,7 +268,33 @@ namespace Greens_Garage
 		{
 
 		}
-	}
 
-	//test
+		private void btnSaveService_Click(object sender, EventArgs e)
+		{
+			DataRow newServiceRow = DM.dtService.NewRow();
+			if (txtAddHours.Text == "")
+
+			{
+				MessageBox.Show("Please specify hours spent.", "Error");
+			}
+			else
+			{
+				try
+				{
+					newServiceRow["VehicleID"] = cboAddVehicleID.Text;
+					newServiceRow["ServiceTypeID"] = cboAddServiceTypeID.Text;
+					newServiceRow["Hours"] = txtAddHours.Text;
+					newServiceRow["ServiceDate"] = dtpServiceDate.Text;
+					newServiceRow["Status"] = "Pending";
+					DM.dtService.Rows.Add(newServiceRow);
+					MessageBox.Show("Service added successfully", "Success");
+					DM.UpdateService();
+				}
+				catch (FormatException ex)
+				{
+					MessageBox.Show("Please enter a number for hours", "Error");
+				}
+			}
+		}
+	}
 }

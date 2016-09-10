@@ -293,6 +293,7 @@
 			this.btnSaveService.TabIndex = 11;
 			this.btnSaveService.Text = "Save Service";
 			this.btnSaveService.UseVisualStyleBackColor = true;
+			this.btnSaveService.Click += new System.EventHandler(this.btnSaveService_Click);
 			// 
 			// lblAddServiceDate
 			// 
