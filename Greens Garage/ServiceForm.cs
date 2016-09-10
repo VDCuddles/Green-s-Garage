@@ -256,7 +256,14 @@ namespace Greens_Garage
 
 		private void cboAddServiceTypeDescription_Click(object sender, EventArgs e)
 		{
+			//string originalText = cboAddServiceTypeDescription.Text.ToString();
 
+			//int aServiceTypeID = (cboAddServiceTypeDescription.SelectedIndex);
+			//cmServiceType.Position = DM.serviceTypeView.Find(aServiceTypeID);
+			//cmServiceType.Position += 1;
+			//DataRow drServiceType = DM.dtServiceType.Rows[cmServiceType.Position];
+
+			//cboAddServiceTypeID.Text = drServiceType["ServiceTypeID"].ToString();
 		}
 
 		private void ServiceForm_TextChanged(object sender, EventArgs e)
@@ -270,4 +277,5 @@ namespace Greens_Garage
 		}
 	}
 
+	//test
 }
