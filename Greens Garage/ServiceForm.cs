@@ -15,7 +15,7 @@ namespace Greens_Garage
 {
 	public partial class ServiceForm : Form
 	{
-
+		//change txtPlateNumber.Text to a the value dictated by the Vehicle ID used in the Vehicle datatable
 		public void getPlateNumber()
 		{
 			int aVehicleID = Convert.ToInt32(txtVehicleID.Text);
@@ -25,6 +25,7 @@ namespace Greens_Garage
 			txtPlateNumber.Text = drVehicle["PlateNumber"].ToString();
 		}
 
+		//change txtOwnerName.Text to a the value dictated by the Vehicle ID -> Owner ID used in the Owner datatable
 		public void getOwnerName()
 		{
 			int aVehicleID = Convert.ToInt32(txtVehicleID.Text);
@@ -40,6 +41,7 @@ namespace Greens_Garage
 			txtOwnerName.AppendText(drOwner["LastName"].ToString());
 		}
 
+		//change txtServiceType.Text to a the value dictated by the ServiceTypeID used in the Service Type datatable
 		public void getServiceType()
 		{
 			int aServiceTypeID = Convert.ToInt32(txtServiceTypeID.Text);
@@ -49,6 +51,7 @@ namespace Greens_Garage
 			txtServiceType.Text = drServiceType["Description"].ToString();
 		}
 
+		//change txtHourlyRate.Text to a the value dictated by the ServiceTypeID used in the Service Type datatable
 		public void getHourlyRate()
 		{
 			int aServiceTypeID = Convert.ToInt32(txtServiceTypeID.Text);
@@ -306,7 +309,7 @@ namespace Greens_Garage
 				}
 				catch (FormatException ex)
 				{
-					MessageBox.Show("Please enter a number for hours", "Error");
+					MessageBox.Show("Error", "Error");
 				}
 			}
 		}
@@ -325,7 +328,7 @@ namespace Greens_Garage
 				MessageBoxButtons.OKCancel) == DialogResult.OK)
 				{
 					deleteServiceRow.Delete();
-					DM.UpdateVehicle();
+					DM.UpdateService();
 				}
 			}
 		}
@@ -342,6 +345,8 @@ namespace Greens_Garage
 			{
 				markPaidRow["Status"] = "Paid";
 				MessageBox.Show("Service marked as Paid.");
+				currencyManager.EndCurrentEdit();
+				DM.UpdateService();
 			}
 		}
 

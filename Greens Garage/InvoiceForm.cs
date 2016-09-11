@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //this code with reference to Wallace Events solution - concertreportform.cs
+//and also StageForm.cs/lblStageID_TextChanged()
 
 namespace Greens_Garage
 {
@@ -17,7 +18,6 @@ namespace Greens_Garage
 		
 		private DataModule DM;
 		private MainForm frmMenu;
-		private CurrencyManager currencyManager;
 		CurrencyManager cmServiceType;
 		CurrencyManager cmOwner;
 		CurrencyManager cmVehicle;
@@ -53,7 +53,6 @@ namespace Greens_Garage
 		private void printInvoices_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
 		{
 			Graphics g = e.Graphics;
-			int linesSoFarHeading = 0;
 			Font textFont = new Font("Arial", 10, FontStyle.Regular);
 			Font textFontCenter = new Font("Arial", 10, FontStyle.Regular);
 			Font totalSubtotal = new Font("Arial", 10, FontStyle.Bold);
@@ -88,6 +87,8 @@ namespace Greens_Garage
 				e.HasMorePages = true;
 			}
 		}
+
+		//return owner details as a string to be printed
 		public string getOwnerDetails(DataRow dataRow)
 		{
 			int aVehicleID = Convert.ToInt32(dataRow["VehicleID"].ToString());
@@ -112,6 +113,7 @@ namespace Greens_Garage
 
 			return ownerFullDetails;
 		}
+		//return vehicle details as a string to be printed
 		public string getVehicleDetails(DataRow dataRow)
 		{
 			int aVehicleID = Convert.ToInt32(dataRow["VehicleID"].ToString());
@@ -135,7 +137,7 @@ namespace Greens_Garage
 
 			return vehicleFullDetails;
 		}
-
+		//return service details, equipment details and gross due as a string to be printed
 		public string getServiceDetails(DataRow dataRow)
 		{
 			int aServiceID = Convert.ToInt32(dataRow["ServicetypeID"].ToString());

@@ -48,8 +48,8 @@
 			this.txtOwnerID = new System.Windows.Forms.TextBox();
 			this.txtOwnerName = new System.Windows.Forms.TextBox();
 			this.pnlAddVehicle = new System.Windows.Forms.Panel();
-			this.cmbAddOwnerName = new System.Windows.Forms.ComboBox();
-			this.cmbAddOwnerID = new System.Windows.Forms.ComboBox();
+			this.cboAddOwnerName = new System.Windows.Forms.ComboBox();
+			this.cboAddOwnerID = new System.Windows.Forms.ComboBox();
 			this.txtAddModel = new System.Windows.Forms.TextBox();
 			this.txtAddMake = new System.Windows.Forms.TextBox();
 			this.txtAddPlateNumber = new System.Windows.Forms.TextBox();
@@ -248,8 +248,8 @@
 			// 
 			// pnlAddVehicle
 			// 
-			this.pnlAddVehicle.Controls.Add(this.cmbAddOwnerName);
-			this.pnlAddVehicle.Controls.Add(this.cmbAddOwnerID);
+			this.pnlAddVehicle.Controls.Add(this.cboAddOwnerName);
+			this.pnlAddVehicle.Controls.Add(this.cboAddOwnerID);
 			this.pnlAddVehicle.Controls.Add(this.txtAddModel);
 			this.pnlAddVehicle.Controls.Add(this.txtAddMake);
 			this.pnlAddVehicle.Controls.Add(this.txtAddPlateNumber);
@@ -267,21 +267,21 @@
 			this.pnlAddVehicle.TabIndex = 19;
 			this.pnlAddVehicle.Visible = false;
 			// 
-			// cmbAddOwnerName
+			// cboAddOwnerName
 			// 
-			this.cmbAddOwnerName.FormattingEnabled = true;
-			this.cmbAddOwnerName.Location = new System.Drawing.Point(223, 175);
-			this.cmbAddOwnerName.Name = "cmbAddOwnerName";
-			this.cmbAddOwnerName.Size = new System.Drawing.Size(162, 21);
-			this.cmbAddOwnerName.TabIndex = 13;
+			this.cboAddOwnerName.FormattingEnabled = true;
+			this.cboAddOwnerName.Location = new System.Drawing.Point(223, 175);
+			this.cboAddOwnerName.Name = "cboAddOwnerName";
+			this.cboAddOwnerName.Size = new System.Drawing.Size(162, 21);
+			this.cboAddOwnerName.TabIndex = 13;
 			// 
-			// cmbAddOwnerID
+			// cboAddOwnerID
 			// 
-			this.cmbAddOwnerID.FormattingEnabled = true;
-			this.cmbAddOwnerID.Location = new System.Drawing.Point(120, 175);
-			this.cmbAddOwnerID.Name = "cmbAddOwnerID";
-			this.cmbAddOwnerID.Size = new System.Drawing.Size(85, 21);
-			this.cmbAddOwnerID.TabIndex = 12;
+			this.cboAddOwnerID.FormattingEnabled = true;
+			this.cboAddOwnerID.Location = new System.Drawing.Point(120, 175);
+			this.cboAddOwnerID.Name = "cboAddOwnerID";
+			this.cboAddOwnerID.Size = new System.Drawing.Size(85, 21);
+			this.cboAddOwnerID.TabIndex = 12;
 			// 
 			// txtAddModel
 			// 
@@ -566,8 +566,8 @@
 		private System.Windows.Forms.Label lblAddVehicleNo;
 		private System.Windows.Forms.Button btnAddCancel;
 		private System.Windows.Forms.Button btnSaveVehicle;
-		private System.Windows.Forms.ComboBox cmbAddOwnerName;
-		private System.Windows.Forms.ComboBox cmbAddOwnerID;
+		private System.Windows.Forms.ComboBox cboAddOwnerName;
+		private System.Windows.Forms.ComboBox cboAddOwnerID;
 		private System.Windows.Forms.TextBox txtAddModel;
 		private System.Windows.Forms.TextBox txtAddMake;
 		private System.Windows.Forms.TextBox txtAddPlateNumber;

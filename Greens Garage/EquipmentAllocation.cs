@@ -78,7 +78,7 @@ namespace Greens_Garage
 		private void btnRemoveEquipment_Click(object sender, EventArgs e)
 		{
 
-			if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
+			if (MessageBox.Show("Are you sure you want to deallocate this equipment?", "Warning",
 			MessageBoxButtons.OKCancel) == DialogResult.OK)
 			{
 				string ServiceTypeID = DM.dtServiceTypeEquipment.Rows[cmServiceTypeEquipment.Position]["ServiceTypeID"].ToString();
@@ -104,22 +104,3 @@ namespace Greens_Garage
 
 
 }
-
-//private void btnDeleteOwner_Click(object sender, EventArgs e)
-//{
-//	DataRow deleteOwnerRow = DM.dtOwner.Rows[currencyManager.Position];
-//	DataRow[] VehicleRow = DM.dtVehicle.Select("OwnerID = " + lblOwnerID.Text);
-//	if (VehicleRow.Length != 0)
-//	{
-//		MessageBox.Show("You may only delete owners that are not allocated to vehicles", "Error");
-//	}
-//	else
-//	{
-//		if (MessageBox.Show("Are you sure you want to delete this record?", "Warning",
-//		MessageBoxButtons.OKCancel) == DialogResult.OK)
-//		{
-//			deleteOwnerRow.Delete();
-//			DM.UpdateOwner();
-//		}
-//	}
-//}

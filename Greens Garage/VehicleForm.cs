@@ -15,6 +15,7 @@ namespace Greens_Garage
 {
 	public partial class VehicleForm : Form
 	{
+		//change txtOwnerName.Text to a the value dictated by the Owner ID used in the Owner datatable
 		public void getOwnerName()
 		{
 			int aOwnerID = Convert.ToInt32(txtOwnerID.Text);
@@ -43,14 +44,14 @@ namespace Greens_Garage
 			txtAddPlateNumber.Enabled = false;
 			txtAddMake.Enabled = false;
 			txtAddModel.Enabled = false;
-			cmbAddOwnerID.Enabled = false;
-			cmbAddOwnerName.Enabled = false;
-			cmbAddOwnerID.DataSource = DM.dsGreen;
-			cmbAddOwnerID.DisplayMember = "Owner.OwnerID";
-			cmbAddOwnerID.ValueMember = "Owner.OwnerID";
-			cmbAddOwnerName.DataSource = DM.dsGreen;
-			cmbAddOwnerName.DisplayMember = "Owner.LastName";
-			cmbAddOwnerName.ValueMember = "Owner.LastName";
+			cboAddOwnerID.Enabled = false;
+			cboAddOwnerName.Enabled = false;
+			cboAddOwnerID.DataSource = DM.dsGreen;
+			cboAddOwnerID.DisplayMember = "Owner.OwnerID";
+			cboAddOwnerID.ValueMember = "Owner.OwnerID";
+			cboAddOwnerName.DataSource = DM.dsGreen;
+			cboAddOwnerName.DisplayMember = "Owner.LastName";
+			cboAddOwnerName.ValueMember = "Owner.LastName";
 
 
 			lblUpdateVehicleID.DataBindings.Add("Text", DM.dsGreen, "Vehicle.VehicleID");
@@ -152,8 +153,8 @@ namespace Greens_Garage
 			txtAddPlateNumber.Enabled = true;
 			txtAddMake.Enabled = true;
 			txtAddModel.Enabled = true;
-			cmbAddOwnerID.Enabled = true;
-			cmbAddOwnerName.Enabled = true;
+			cboAddOwnerID.Enabled = true;
+			cboAddOwnerName.Enabled = true;
 			pnlAddVehicle.Show();
 		}
 
@@ -170,8 +171,8 @@ namespace Greens_Garage
 			txtAddPlateNumber.Enabled = false;
 			txtAddMake.Enabled = false;
 			txtAddModel.Enabled = false;
-			cmbAddOwnerID.Enabled = false;
-			cmbAddOwnerName.Enabled = false;
+			cboAddOwnerID.Enabled = false;
+			cboAddOwnerName.Enabled = false;
 		}
 
 		private void btnSaveVehicle_Click(object sender, EventArgs e)
@@ -191,14 +192,14 @@ namespace Greens_Garage
 					newVehicleRow["PlateNumber"] = txtAddPlateNumber.Text;
 					newVehicleRow["Make"] = txtAddMake.Text;
 					newVehicleRow["Model"] = txtAddModel.Text;
-					newVehicleRow["OwnerID"] = cmbAddOwnerID.Text;
+					newVehicleRow["OwnerID"] = cboAddOwnerID.Text;
 					DM.dtVehicle.Rows.Add(newVehicleRow);
 					MessageBox.Show("Vehicle added successfully", "Success");
 					DM.UpdateVehicle();
 				}
 				catch (FormatException ex)
 				{
-					MessageBox.Show("Please enter a number for cost", "Error");
+					MessageBox.Show("Error", "Error");
 				}
 			}
 		}

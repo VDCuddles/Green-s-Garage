@@ -114,7 +114,7 @@ namespace Greens_Garage
 				}
 				catch (FormatException ex)
 				{
-					MessageBox.Show("Please enter a number for cost", "Error");
+					MessageBox.Show("Error", "Error");
 				}
 			}
 		}
