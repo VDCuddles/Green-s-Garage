@@ -21,6 +21,7 @@ namespace Greens_Garage
 		public DataTable dtVehicle;
 		public DataView equipmentView;
 		public DataView serviceTypeView;
+		public DataView serviceTypeEquipmentView;
 		public DataView ownerView;
 		public DataView vehicleView;
 
@@ -47,7 +48,9 @@ namespace Greens_Garage
 			serviceTypeView = new DataView(dtServiceType);
 			serviceTypeView.Sort = "ServiceTypeID";
 			equipmentView = new DataView(dtEquipment);
-			equipmentView.Sort = "EquipmentID";	
+			equipmentView.Sort = "EquipmentID";
+			serviceTypeEquipmentView = new DataView(dtServiceTypeEquipment);
+			serviceTypeEquipmentView.Sort = "ServiceTypeID";
 
 
 			dsGreen.EnforceConstraints = true;

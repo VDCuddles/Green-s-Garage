@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//with reference to Wallace Events solution - the getOwnerName() method was
+//created with reference to the StageForm.cs code/lblStageID_TextChanged()
+
 namespace Greens_Garage
 {
 	public partial class VehicleForm : Form

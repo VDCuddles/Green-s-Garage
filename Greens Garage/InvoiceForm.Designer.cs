@@ -28,10 +28,13 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceForm));
 			this.btnPrintInvoices = new System.Windows.Forms.Button();
 			this.btnReturn = new System.Windows.Forms.Button();
 			this.pnlPrintText = new System.Windows.Forms.Panel();
 			this.txtPrintText = new System.Windows.Forms.TextBox();
+			this.prvInvoices = new System.Windows.Forms.PrintPreviewDialog();
+			this.printInvoices = new System.Drawing.Printing.PrintDocument();
 			this.pnlPrintText.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -71,6 +74,22 @@
 			this.txtPrintText.Size = new System.Drawing.Size(100, 20);
 			this.txtPrintText.TabIndex = 0;
 			// 
+			// prvInvoices
+			// 
+			this.prvInvoices.AutoScrollMargin = new System.Drawing.Size(0, 0);
+			this.prvInvoices.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+			this.prvInvoices.ClientSize = new System.Drawing.Size(400, 300);
+			this.prvInvoices.Document = this.printInvoices;
+			this.prvInvoices.Enabled = true;
+			this.prvInvoices.Icon = ((System.Drawing.Icon)(resources.GetObject("prvInvoices.Icon")));
+			this.prvInvoices.Name = "prvInvoices";
+			this.prvInvoices.Visible = false;
+			// 
+			// printInvoices
+			// 
+			this.printInvoices.DocumentName = "Invoice Document";
+			this.printInvoices.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printInvoices_PrintPage);
+			// 
 			// InvoiceForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,5 +112,7 @@
 		private System.Windows.Forms.Button btnReturn;
 		private System.Windows.Forms.Panel pnlPrintText;
 		private System.Windows.Forms.TextBox txtPrintText;
+		private System.Windows.Forms.PrintPreviewDialog prvInvoices;
+		private System.Drawing.Printing.PrintDocument printInvoices;
 	}
 }
